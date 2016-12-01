@@ -1,0 +1,51 @@
+<div ng-controller="ProductController as vm">
+    <div class="header-top col-md-12 clear-padding">
+        <div class="col-md-4 clear-padding">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" ng-model="vm.SearchText" name="q" ng-change="vm.filterGrid()">
+                <div class="input-group-btn">
+                    <button class="btn btn-sm btn-primary" type="button"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="right">
+                <label>Category</label> <input kendo-drop-down-list="vm.controls.ddl" k-options="vm.configs.ddlOptions">
+                &nbsp;&nbsp;
+                <input class="btn btn-sm btn-danger" type="button" value="Add New" ng-click="vm.ViewDetail()">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-12 clear-padding">
+        <div class="grid">
+            <table kendo-grid="vm.controls.grid" k-options="vm.configs.gridOptions">
+                <colgroup>
+                    <!--<col />-->
+                    <col />
+                    <col />
+                    <col style="width:250px" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <!--<th data-field="id">Product Id</th>-->
+                        <th data-field="name">Product Name</th>
+                        <th data-field="unitPrice">Unit Price</th>
+                        <th data-template="<input type='button' class='btn btn-sm btn-primary' value='Edit' ng-click='vm.ViewDetail(#:data.Id#)'/><input type='button' class='btn btn-sm btn-danger' value='Delete' ng-click='vm.OpenPopup(#:data.Id#, 1)'/><input type='button' class='btn btn-sm btn-default' value='Clone' ng-click='vm.OpenPopup(#:data.Id#, 2)'/>"></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <div kendo-window="vm.controls.wndConfirm" k-options="vm.configs.wndConfirmOptions">
+        <div><label>{{vm.Message}}</label></div>
+        <div>
+            <div>
+                <input type="button" style="width:100px" class="btn btn-sm btn-danger btnYes" value="Yes" ng-click="vm.Yes()"/>
+                <input type="button" style="width:100px" class="btn btn-sm btn-primary btnNo" value="No" ng-click="vm.No()"/>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+﻿{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es5",    
+    "sourceMap": true,
+    "noEmitOnError": true,
+    "removeComments": false,
+	"out": "scripts.js",
+    "noImplicitAny": false
+  },
+  "exclude": [
+	"wwwroot",
+    "bower_components",
+    "node_modules"
+  ]
+}

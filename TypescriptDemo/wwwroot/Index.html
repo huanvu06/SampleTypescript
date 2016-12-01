@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/Site.css" />
+    <link href="/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/lib/kendo/2016.1.226/css/kendo.common.min.css" rel="stylesheet" />
+    <link href="/lib/kendo/2016.1.226/css/kendo.bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/toastr.min.css" rel="stylesheet" />
+
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/js/toastr.min.js"></script>
+    <script src="/lib/angular/modules/angular-animate.js"></script>
+    <script src="/lib/angular/modules/angular-route.js"></script>
+    <script src="/lib/kendo/2016.1.226/js/kendo.all.min.js"></script>
+    <script src="/lib/kendo/2016.1.226/js/kendo.angular.min.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">LCPManager.Web</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/">Home</a></li>
+                    <li><a href="#/product">Product</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div id="lcpManagerApp">
+            <div ng-cloak class="splash">
+                <h1>Add logo here while loading...</h1>
+            </div>
+
+            <div ng-controller="AppController as vm">
+                <div ng-view></div>
+            </div>
+
+            <div id="loadingWrapper">
+                <div class="overlay"></div>
+                <img src="/images/ripple.gif" class="ajax-loader">
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <hr />
+            <footer>
+                <p>&copy; 2016 - Typescript Demo By Huan Vu</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/app/scripts.js"></script>
+    <script type="text/javascript">
+        SampleTypescript.Main.templateDir = "/app";
+        SampleTypescript.Main.wrapperApp = "#lcpManagerApp";
+        SampleTypescript.Main.APIs.BASE = "http://localhost:2690/";
+    </script>
+
+</body>
+</html>
